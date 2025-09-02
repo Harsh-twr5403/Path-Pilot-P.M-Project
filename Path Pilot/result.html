@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Career Result - PathPilot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-rocket text-2xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">PathPilot</span>
+                    </a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="career-explore.html#comparison-tool" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-chart-bar mr-2"></i>Compare Careers
+                    </a>
+                    <button id="share-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-share mr-2"></i>Share Result
+                    </button>
+                    <a href="quiz.html" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-redo mr-2"></i>Retake Quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Result Container -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Career Result Section -->
+        <div id="career-result" class="bg-white rounded-xl shadow-xl p-8 mb-8 text-center">
+            <div class="mb-6">
+                <i id="career-icon" class="fas fa-rocket text-6xl text-blue-600 mb-4"></i>
+                <h1 id="career-title" class="text-4xl font-bold text-gray-800 mb-4">Loading...</h1>
+                <p id="career-description" class="text-xl text-gray-600 max-w-3xl mx-auto">Discovering your perfect career path...</p>
+            </div>
+        </div>
+
+        <!-- Multiple Careers Section -->
+        <div id="multiple-careers-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">You're a perfect match for multiple careers!</h1>
+                <p id="multiple-careers-description" class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">You have a unique combination of traits that make you well-suited for different career paths.</p>
+                
+                <div id="multiple-careers-cards" class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- Career cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Overview Cards -->
+        <div id="career-overview" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Explore Other Careers Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Explore Other Career Paths</h2>
+            <p class="text-gray-600 mb-6">Want to learn about different roles and their requirements? Check out our comprehensive career exploration page.</p>
+            <a href="career-explore.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors inline-flex items-center">
+                <i class="fas fa-search mr-2"></i>Explore All Careers
+            </a>
+        </div>
+
+        <!-- Roadmap Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Your Career Roadmap</h2>
+            <div id="roadmap-container" class="space-y-6">
+                <!-- Roadmap will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Skill Builder Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Skill Builder Checklist</h2>
+            <div id="skill-builder" class="space-y-4">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+            <div class="mt-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700">Progress</span>
+                    <span id="progress-percentage" class="text-sm font-medium text-blue-600">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div id="progress-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Famous Projects Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Famous Projects in This Field</h2>
+            <p class="text-gray-600 mb-6">Here are some iconic projects that showcase what you could work on in this career:</p>
+            <div id="famous-projects" class="grid md:grid-cols-3 gap-6">
+                <!-- Famous projects will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Resource Recommendations -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Curated Learning Resources</h2>
+            <div id="resources-container" class="grid md:grid-cols-3 gap-6">
+                <!-- Resources will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Connect with Team Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Connect with Our Team</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">One-on-One Mentorship</h3>
+                                <p class="text-sm text-gray-600">Get personalized guidance</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Connect directly with our experienced mentors for personalized career guidance, resume reviews, interview preparation, and industry insights.</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                Career path guidance
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                Resume & portfolio review
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                Interview preparation
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                                Industry insights & networking
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Why Choose Our Mentors Card -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-star text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Why Choose Our Mentors</h3>
+                                <p class="text-sm text-gray-600">Expert guidance from industry leaders</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-medal text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Industry Experts</h4>
+                                        <p class="text-sm text-gray-600">Mentors from top companies like Google, Microsoft, Apple</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-clock text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Proven Experience</h4>
+                                        <p class="text-sm text-gray-600">8+ years average experience in their fields</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-heart text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Passionate Teachers</h4>
+                                        <p class="text-sm text-gray-600">Dedicated to helping students succeed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-shield-alt text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Verified Profiles</h4>
+                                        <p class="text-sm text-gray-600">All mentors are thoroughly vetted and verified</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-comments text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Personalized Approach</h4>
+                                        <p class="text-sm text-gray-600">Tailored guidance based on your specific goals</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-trophy text-purple-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Success Stories</h4>
+                                        <p class="text-sm text-gray-600">Track record of helping students land dream jobs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+                        <p class="text-gray-600 mb-6">Fill out the form below and we'll connect you with the right mentor for your career goals.</p>
+                        
+                        <form id="team-contact-form" class="space-y-4" action="https://formsubmit.co/tiwariharsh5403@gmail.com" method="POST">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                    <input type="text" name="firstName" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your first name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                    <input type="text" name="lastName" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your last name">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" name="phone" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+91 98765 43210">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Current Education Level</label>
+                                <select name="educationLevel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select your education level</option>
+                                    <option value="high-school">High School</option>
+                                    <option value="undergraduate">Undergraduate</option>
+                                    <option value="graduate">Graduate</option>
+                                    <option value="working-professional">Working Professional</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Career Interest</label>
+                                <select name="careerInterest" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select your career interest</option>
+                                    <option value="product-manager">Product Manager</option>
+                                    <option value="software-developer">Software Developer</option>
+                                    <option value="data-scientist">Data Scientist</option>
+                                    <option value="ux-designer">UX/UI Designer</option>
+                                    <option value="devops-architect">DevOps Architect</option>
+                                    <option value="cybersecurity-architect">Cybersecurity Architect</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Your Message/Question *</label>
+                                <textarea name="message" required rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your career goals, questions, or what kind of guidance you're looking for..."></textarea>
+                            </div>
+                            
+                            <!-- Hidden fields for additional data -->
+                            <input type="hidden" name="careerResult" id="career-result-hidden">
+                            <input type="hidden" name="quizAnswers" id="quiz-answers-hidden">
+                            <input type="hidden" name="source" value="PathPilot Career Quiz">
+                            
+                            <div class="flex justify-end">
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors font-medium">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Explain to Parents Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Explain to Parents</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">English Summary</h3>
+                    <div id="parent-summary-en" class="space-y-3 text-gray-700">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Hindi Summary</h3>
+                    <div id="parent-summary-hi" class="space-y-3 text-gray-700">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Polls Section -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Student Career Trends</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Most Popular Career Choices</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Software Development</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <span class="text-sm font-medium">35%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Data Science</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 28%"></div>
+                                </div>
+                                <span class="text-sm font-medium">28%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Product Management</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 22%"></div>
+                                </div>
+                                <span class="text-sm font-medium">22%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">UX/UI Design</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 15%"></div>
+                                </div>
+                                <span class="text-sm font-medium">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Recent Student Insights</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-700 italic">"PathPilot helped me discover my passion for data science. The resources are amazing!"</p>
+                            <p class="text-sm text-gray-500 mt-2">- Anonymous Student</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-700 italic">"Finally found clarity on my career path. The roadmap is so detailed and practical."</p>
+                            <p class="text-sm text-gray-500 mt-2">- Anonymous Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand Identity Section -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Path Pilot</h3>
+                            <p class="text-blue-300 text-sm">Navigate Your Future with Confidence</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                        Empowering students and professionals to discover their perfect career path through intelligent assessment and comprehensive guidance.
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        Made with ❤️ by Harsh Tiwari
+                    </p>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="privacy-policy.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Terms of Use
+                            </a>
+                        </li>
+                        <li>
+                            <a href="career-explore.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Explore Careers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="career-explore.html#comparison-tool" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Compare Careers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support Section -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact & Support</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <p class="text-gray-300 text-sm">
+                                contact.pathpilot@gmail.com
+                            </p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">Global Reach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Elements Section -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto mb-2">
+                        Career suggestions are based on quiz responses and are for guidance purposes only. Please consult a professional for final career decisions.
+                    </p>
+                    <p class="text-gray-500 text-xs">
+                        © 2025 Path Pilot. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

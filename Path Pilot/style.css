@@ -1,0 +1,979 @@
+/* Custom CSS for PathPilot */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes confetti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Apply animations */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Quiz specific styles */
+.quiz-option {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.quiz-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quiz-option.selected {
+    border-color: #2563eb !important;
+    background-color: #eff6ff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Question transitions */
+.question-slide {
+    transition: all 0.5s ease;
+}
+
+.question-slide.hidden {
+    display: none;
+}
+
+.question-slide.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.question-slide.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Progress bar animation */
+#progress-bar {
+    transition: width 0.5s ease;
+}
+
+/* FAQ accordion styles */
+.faq-question {
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f8fafc;
+}
+
+.faq-answer {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq-answer.show {
+    max-height: 200px;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+/* Career cards hover effects */
+.career-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Tie case specific styles */
+.career-card[data-career] {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.career-card[data-career]:hover {
+    border-color: #2563eb;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+.career-card[data-career] button {
+    transition: all 0.3s ease;
+}
+
+.career-card[data-career]:hover button {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Career detail cards for tie cases */
+.career-detail-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.career-detail-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.1);
+}
+
+.career-explore-btn {
+    transition: all 0.3s ease;
+}
+
+.career-explore-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Career option cards for tie cases */
+.career-option-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.career-option-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+.career-select-btn {
+    transition: all 0.3s ease;
+}
+
+.career-option-card:hover .career-select-btn {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Multiple careers section styles */
+.career-match-card {
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.career-match-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.explore-career-btn {
+    transition: all 0.3s ease;
+}
+
+.career-match-card:hover .explore-career-btn {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Smooth animations for section transitions */
+#multiple-careers-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+#career-result {
+    transition: all 0.4s ease;
+}
+
+#career-result.success-animation {
+    animation: successPulse 0.6s ease-out;
+}
+
+/* Back button styles */
+#back-to-multiple-btn {
+    transition: all 0.3s ease;
+}
+
+#back-to-multiple-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Career comparison tool styles */
+.career-checkbox-label {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.career-checkbox-label:hover {
+    border-color: #2563eb;
+    background-color: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.career-checkbox-label input[type="checkbox"]:checked + div {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.career-checkbox-label input[type="checkbox"]:checked {
+    accent-color: #2563eb;
+}
+
+/* Comparison table styles */
+.comparison-table {
+    border-collapse: collapse;
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.comparison-table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Progress bar styles for skill requirements */
+.skill-progress-bar {
+    width: 60px;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.skill-progress-fill.technical {
+    background-color: #2563eb;
+}
+
+.skill-progress-fill.soft {
+    background-color: #059669;
+}
+
+.skill-progress-fill.creative {
+    background-color: #7c3aed;
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+    .comparison-table {
+        font-size: 0.875rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .skill-progress-bar {
+        width: 40px;
+        height: 6px;
+    }
+    
+    .career-checkbox-label {
+        padding: 0.75rem;
+    }
+}
+
+/* Badge styles for demand and risk levels */
+.demand-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.demand-badge.high {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.demand-badge.medium {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.demand-badge.low {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Save comparison button styles */
+.save-comparison-btn {
+    transition: all 0.3s ease;
+}
+
+.save-comparison-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Comparison results animation */
+.comparison-results {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Back button styles */
+#back-to-tie-btn {
+    transition: all 0.3s ease;
+}
+
+#back-to-tie-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Skill checklist styles */
+.skill-item {
+    transition: all 0.3s ease;
+}
+
+.skill-item.completed {
+    background-color: #dcfce7;
+    border-color: #22c55e;
+}
+
+.skill-item.completed .skill-checkbox {
+    background-color: #22c55e;
+    border-color: #22c55e;
+}
+
+.skill-item.completed .skill-text {
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+/* Resource card styles */
+.resource-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.resource-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+}
+
+.tag-free {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.tag-mentor-picked {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.tag-beginner {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.tag-intermediate {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.tag-advanced {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+/* Mentor card styles */
+.mentor-card {
+    transition: all 0.3s ease;
+}
+
+.mentor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Confetti animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #fbbf24;
+    animation: confetti 3s linear forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Result page specific styles */
+.career-result {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.career-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Roadmap styles */
+.roadmap-step {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.roadmap-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: #2563eb;
+    border-radius: 50%;
+    border: 3px solid #dbeafe;
+}
+
+.roadmap-step::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 1rem;
+    width: 2px;
+    height: calc(100% - 1rem);
+    background-color: #dbeafe;
+}
+
+.roadmap-step:last-child::after {
+    display: none;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    
+    .text-4xl {
+        font-size: 2rem;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    .p-8 {
+        padding: 1.5rem;
+    }
+    
+    .py-20 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .bg-white {
+        background: white !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .dark-mode {
+        background-color: #1f2937;
+        color: #f9fafb;
+    }
+    
+    .dark-mode .bg-white {
+        background-color: #374151;
+        color: #f9fafb;
+    }
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+}
+
+/* Success animation */
+.success-animation {
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    border-left: 4px solid #22c55e;
+}
+
+.notification.error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification.info {
+    border-left: 4px solid #2563eb;
+} 
+
+/* Responsive design for multiple careers */
+@media (max-width: 768px) {
+    .career-match-card {
+        margin-bottom: 1rem;
+    }
+    
+    .career-match-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    #multiple-careers-section h1 {
+        font-size: 2rem;
+    }
+    
+    #multiple-careers-section p {
+        font-size: 1.1rem;
+    }
+    
+    .career-match-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .career-match-card p {
+        font-size: 0.9rem;
+    }
+    
+    .explore-career-btn {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #multiple-careers-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .career-match-card {
+        padding: 1rem;
+    }
+    
+    .career-match-card .w-20 {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .career-match-card .text-3xl {
+        font-size: 1.5rem;
+    }
+} 
+
+/* Career explore cards on homepage */
+.career-explore-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.career-explore-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #2563eb;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.career-explore-card:active {
+    transform: translateY(-4px) scale(1.01);
+}
+
+/* Add a subtle indicator that cards are clickable */
+.career-explore-card::after {
+    content: 'Click to explore →';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #6b7280;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+}
+
+.career-explore-card:hover::after {
+    opacity: 1;
+}
+
+/* Add a subtle shine effect on hover */
+.career-explore-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.career-explore-card:hover::before {
+    left: 100%;
+} 
+
+/* Footer Styles */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* Footer brand section */
+footer .w-12 {
+    transition: all 0.3s ease;
+}
+
+footer .w-12:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Footer links hover effects */
+footer a:hover {
+    transform: translateX(3px);
+}
+
+/* Newsletter form styles */
+footer input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Social media icons */
+footer .fab {
+    transition: all 0.3s ease;
+}
+
+footer .fab:hover {
+    transform: scale(1.2);
+}
+
+/* Engagement section enhancement */
+footer .bg-gradient-to-r {
+    position: relative;
+    overflow: hidden;
+}
+
+footer .bg-gradient-to-r::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+footer .bg-gradient-to-r:hover::before {
+    left: 100%;
+}
+
+/* Responsive footer adjustments */
+@media (max-width: 768px) {
+    footer .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    footer .lg\\:col-span-2 {
+        grid-column: span 1;
+    }
+    
+    footer .text-center {
+        text-align: left;
+    }
+    
+    footer .max-w-md {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 2rem 1rem;
+    }
+    
+    footer .p-8 {
+        padding: 1.5rem;
+    }
+    
+    footer .text-2xl {
+        font-size: 1.5rem;
+    }
+    
+    footer .text-xl {
+        font-size: 1.25rem;
+    }
+} 

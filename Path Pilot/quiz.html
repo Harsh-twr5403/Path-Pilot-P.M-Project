@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Quiz - PathPilot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-rocket text-2xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">PathPilot</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-600">
+                    <span id="progress-text">Question 1 of 8</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-white shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-2">
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 12.5%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <div id="quiz-container" class="bg-white rounded-xl shadow-xl p-8">
+            <!-- Question 1 -->
+            <div class="question-slide" data-question="1">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">What excites you the most?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Solving user problems with simple, intuitive experiences</h3>
+                                <p class="text-gray-600 text-sm">Creating user-friendly solutions</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Turning complex ideas into structured, scalable systems</h3>
+                                <p class="text-gray-600 text-sm">Building robust technical solutions</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Understanding user needs and guiding the entire product vision</h3>
+                                <p class="text-gray-600 text-sm">Leading product strategy and direction</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Finding hidden insights in large datasets to make better decisions</h3>
+                                <p class="text-gray-600 text-sm">Analyzing data for strategic insights</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-slide hidden" data-question="2">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Which activity do you enjoy the most?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Drawing wireframes, creating color palettes, or using Figma</h3>
+                                <p class="text-gray-600 text-sm">Visual design and prototyping</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Building backend systems, solving DSA problems, or APIs</h3>
+                                <p class="text-gray-600 text-sm">Technical development and algorithms</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Creating dashboards, working with data in Excel or Python</h3>
+                                <p class="text-gray-600 text-sm">Data analysis and visualization</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Brainstorming new product ideas and planning feature launches</h3>
+                                <p class="text-gray-600 text-sm">Product strategy and planning</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-slide hidden" data-question="3">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">How do you usually approach a new problem?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I research deeply and run experiments to validate ideas</h3>
+                                <p class="text-gray-600 text-sm">Data-driven research and validation</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I sketch ideas or map out flows for user journeys</h3>
+                                <p class="text-gray-600 text-sm">Visual design and user experience</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I break it into smaller logical parts and code a solution</h3>
+                                <p class="text-gray-600 text-sm">Systematic problem-solving and coding</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I ask: "Who's the user?" and define the problem statement</h3>
+                                <p class="text-gray-600 text-sm">User-focused problem definition</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-slide hidden" data-question="4">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">In a team project, which role do you naturally take?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I guide the team, align goals, and prioritize tasks</h3>
+                                <p class="text-gray-600 text-sm">Team leadership and coordination</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I love owning the codebase or solving technical blockers</h3>
+                                <p class="text-gray-600 text-sm">Technical ownership and problem-solving</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I suggest how users will interact with the product</h3>
+                                <p class="text-gray-600 text-sm">User interaction and experience design</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">I bring insights from analytics to support decisions</h3>
+                                <p class="text-gray-600 text-sm">Data-driven decision support</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-slide hidden" data-question="5">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Which tool would you enjoy using the most?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Figma / Adobe XD</h3>
+                                <p class="text-gray-600 text-sm">Design and prototyping tools</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">VS Code / IntelliJ</h3>
+                                <p class="text-gray-600 text-sm">Code editors and IDEs</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Jupyter Notebook / Power BI</h3>
+                                <p class="text-gray-600 text-sm">Data analysis and visualization</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Notion / Trello / Productboard</h3>
+                                <p class="text-gray-600 text-sm">Project management and planning</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-slide hidden" data-question="6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">What's your favorite kind of challenge?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Making something easy and beautiful for users</h3>
+                                <p class="text-gray-600 text-sm">Creating intuitive user experiences</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Solving bugs and optimizing performance</h3>
+                                <p class="text-gray-600 text-sm">Technical problem-solving and optimization</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Figuring out why users drop off or what metric matters</h3>
+                                <p class="text-gray-600 text-sm">User behavior analysis and metrics</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Predicting trends from messy data</h3>
+                                <p class="text-gray-600 text-sm">Data analysis and trend prediction</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-slide hidden" data-question="7">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Which kind of success gives you most satisfaction?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">A well-planned launch that solves a user pain point</h3>
+                                <p class="text-gray-600 text-sm">Successful product strategy and execution</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">A product that gets users saying "this is smooth and clean"</h3>
+                                <p class="text-gray-600 text-sm">Exceptional user experience design</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Code that runs fast, clean, and doesn't break</h3>
+                                <p class="text-gray-600 text-sm">High-quality technical implementation</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">A report or model that changes how a business thinks</h3>
+                                <p class="text-gray-600 text-sm">Insightful data analysis and modeling</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-slide hidden" data-question="8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">What kind of feedback do you love hearing?</h2>
+                <div class="space-y-4">
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="A">
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-green-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">"Your design made it so much easier to use!"</h3>
+                                <p class="text-gray-600 text-sm">User experience appreciation</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="B">
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-purple-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">"This product finally solves my problem!"</h3>
+                                <p class="text-gray-600 text-sm">Problem-solving recognition</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="C">
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">"Your code is so clean and efficient."</h3>
+                                <p class="text-gray-600 text-sm">Technical excellence recognition</p>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="quiz-option w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all" data-value="D">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-bar text-red-600 mr-3 text-xl"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">"That data analysis changed the whole strategy."</h3>
+                                <p class="text-gray-600 text-sm">Strategic impact recognition</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mt-8">
+                <button id="prev-btn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors hidden">
+                    <i class="fas fa-arrow-left mr-2"></i>Previous
+                </button>
+                <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                    Next<i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            
+            <!-- Test Button for Tie Case (Remove in production) -->
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <p class="text-sm text-gray-500 mb-4 text-center">Developer Test: Simulate tie case</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="testTieCase()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                        Test Tie: PM + Data Scientist
+                    </button>
+                    <button onclick="testTieCase2()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                        Test Tie: UX + Developer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand Identity Section -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Path Pilot</h3>
+                            <p class="text-blue-300 text-sm">Navigate Your Future with Confidence</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                        Empowering students and professionals to discover their perfect career path through intelligent assessment and comprehensive guidance.
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        Made with ❤️ by Harsh Tiwari
+                    </p>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="privacy-policy.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Terms of Use
+                            </a>
+                        </li>
+                        <li>
+                            <a href="career-explore.html" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Explore Careers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="career-explore.html#comparison-tool" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                Compare Careers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support Section -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact & Support</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <a href="mailto:contact.pathpilot@gmail.com" class="text-gray-300 hover:text-blue-400 transition-colors text-sm">
+                                contact.pathpilot@gmail.com
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">Global Reach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Elements Section -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto mb-2">
+                        Career suggestions are based on quiz responses and are for guidance purposes only. Please consult a professional for final career decisions.
+                    </p>
+                    <p class="text-gray-500 text-xs">
+                        © 2025 Path Pilot. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
